@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #1F2937;
+  color: #F9FAF8;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 80px;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.header-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  color: #E5E7EB;
+  font-size: 18px;
+}
+
+.hero {
+  background-color: #1F2937;
+  color: #F9FAF8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px;
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: #E5E7EB;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.hero-image {
+  background-color: #6b7280;
+  width: 400px;
+  height: 200px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-btn {
+  background-color: #3882F6;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.info, .pricing {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.info h2, .pricing h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #1F2937;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.card {
+  width: 180px;
+  text-align: center;
+  color: #1F2937;
+}
+
+.img-placeholder {
+  width: 100%;
+  height: 150px;
+  border: 3px solid #3882F6;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.quote {
+  background-color: #E5E7EB;
+  padding: 60px 30px;
+  text-align: center;
+  font-size: 36px;
+  font-style: italic;
+  color: #1F2937;
+  font-weight: 300;
+}
+
+.quote strong {
+  font-style: normal;
+  font-weight: 900;
+}
+
+.call-to-action {
+  background-color: #3882F6;
+  color: white;
+  margin: 60px 80px;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.call-to-action h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.call-to-action p {
+  font-size: 14px;
+  margin: 5px 0 0 0;
+}
+
+.footer {
+  background-color: #1F2937;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
