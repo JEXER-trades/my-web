@@ -27,7 +27,6 @@ export function ContactSection({ label = "06", headingAs = "h2" }: { label?: str
               <p className="eyebrow text-stone">Follow</p>
               <div className="mt-2 flex gap-6 text-lg">
                 <a className="link-underline" href={site.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a className="link-underline" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </div>
             </div>
           </Reveal>

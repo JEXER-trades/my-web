@@ -22,7 +22,6 @@ export default function Contact() {
             <p className="eyebrow text-stone">Social</p>
             <div className="mt-3 flex gap-6 font-display text-2xl tracking-[-0.02em]">
               <a className="link-underline" href={site.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a className="link-underline" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </Reveal>
           <Reveal delay={0.16}>

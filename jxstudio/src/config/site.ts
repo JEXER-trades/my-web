@@ -22,7 +22,6 @@ export const site = {
 
   social: {
     instagram: "https://www.instagram.com/sob4n_/",
-    linkedin: "https://www.linkedin.com/", // [PLACEHOLDER] full company page URL
   },
 
   /** Legal notice / Impressum details. Required in some jurisdictions (e.g. DE/AT). */

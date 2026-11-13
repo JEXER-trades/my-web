@@ -34,7 +34,6 @@ export function Footer() {
             <li><a className="link-underline break-all" href={`mailto:${site.contact.email}`}>{site.contact.email}</a></li>
             {site.contact.phone && <li><a className="link-underline" href={`tel:${site.contact.phone.replace(/\s/g, "")}`}>{site.contact.phone}</a></li>}
             <li><a className="link-underline" href={site.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></li>
-            <li><a className="link-underline" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </FooterCol>
         </div>
 
