@@ -1,5 +1,6 @@
 import type { VisualVariant } from "@/components/visuals/Visual";
 import developmentImage from "@/assets/services/development.webp";
+import managementImage from "@/assets/services/website-management.webp";
 
 /**
  * Services as offered on jxstudio.de. These are configurable — edit, reorder,
@@ -51,6 +52,8 @@ export const services: Service[] = [
       "Hosting, backups, security updates and monitoring. We handle the technical side so you can get on with running your business.",
     includes: ["Hosting & SSL", "Regular backups", "Security & software updates", "Uptime monitoring"],
     visual: "lines",
+    image: managementImage,
+    imageAlt: "Illustration of two people working beside a laptop connected to glowing servers",
   },
   {
     slug: "e-commerce",
