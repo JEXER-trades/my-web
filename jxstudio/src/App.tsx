@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, createMemoryRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 
@@ -15,7 +15,10 @@ const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const s = (el: React.ReactNode) => <Suspense fallback={<div className="min-h-[100svh] bg-paper" />}>{el}</Suspense>;
 
-const router = createBrowserRouter([
+// The single-file preview build (npm run build:preview) runs inside a sandboxed frame, so it keeps routing in memory.
+const createRouter = import.meta.env.VITE_MEMORY_ROUTER ? createMemoryRouter : createBrowserRouter;
+
+const router = createRouter([
   {
     element: <Layout />,
     children: [
