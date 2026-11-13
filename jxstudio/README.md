@@ -23,11 +23,12 @@ npm run build            # production build in dist/ (also regenerates sitemap.x
 
 Anything marked `[PLACEHOLDER]` must be replaced before launch.
 
-### Adding a project
-Copy one of the objects in `src/content/projects.ts`, give it a unique `slug`, and remove `placeholder: true`.
-To use real photography, set `image` (and `gallery[].image`) to a URL or an imported file, e.g.
-`import hero from "@/assets/projects/acme-hero.jpg"`. Use WebP/AVIF exported at about 2400px wide.
-Projects marked as placeholders are set to `noindex` and are left out of the sitemap.
+### Projects
+The Work section shows four **concept projects**: demo websites for fictional businesses, hosted at `jxstudio.de/examples/…`.
+Each one is labelled "Concept project" and links to its live demo. Their images are in `src/assets/projects/`.
+
+To add real client work, copy an object in `src/content/projects.ts`, give it a unique `slug`, and leave out `label`
+(or set your own). Import real images the same way the existing projects do. Use WebP exported at about 2400px wide.
 
 ### Imagery
 The site ships with art-directed SVG light studies (`src/components/visuals/Visual.tsx`) instead of stock photography.

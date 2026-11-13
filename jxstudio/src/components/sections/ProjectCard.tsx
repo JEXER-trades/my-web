@@ -11,13 +11,13 @@ export function ProjectCard({ project, index, size = "lg" }: { project: Project;
   return (
     <article>
       <Link to={`/work/${project.slug}`} className="group block" aria-label={`${project.title} — ${project.industry}. View project`}>
-        <ImageReveal className={cn("bg-graphite", size === "lg" ? "aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/9]" : "aspect-[4/5]")}>
+        <ImageReveal className={cn("bg-graphite", project.image ? "aspect-[16/10]" : size === "lg" ? "aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/9]" : "aspect-[4/5]")}>
           <motion.div className="h-full w-full transition-transform duration-[1400ms] ease-apple group-hover:scale-[1.035]">
             <Media visual={project.visual} image={project.image} alt={project.imageAlt} />
           </motion.div>
-          {project.placeholder && (
+          {project.label && (
             <span className="absolute left-4 top-4 rounded-full border border-paper/25 bg-ink/40 px-3 py-1.5 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-paper backdrop-blur-md md:left-6 md:top-6">
-              Placeholder project
+              {project.label}
             </span>
           )}
         </ImageReveal>

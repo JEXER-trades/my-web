@@ -9,7 +9,7 @@ export function FeaturedWork() {
   return (
     <section className="dark-section bg-ink py-section text-paper" aria-labelledby="work-title">
       <div className="container-site">
-        <Reveal><SectionLabel index="03" className="text-stone">Selected work</SectionLabel></Reveal>
+        <Reveal><SectionLabel index="03" className="text-stone">Concept work</SectionLabel></Reveal>
         <TextReveal
           id="work-title"
           lines={["LESS TALK.", "MORE IMPACT."]}

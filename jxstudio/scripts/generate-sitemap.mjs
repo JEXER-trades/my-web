@@ -7,10 +7,8 @@ const fromEnv = process.env.VITE_SITE_URL || (env.match(/^VITE_SITE_URL=(.*)$/m)
 const base = (fromEnv || "https://jxstudio.de").trim().replace(/\/$/, "");
 
 const projectsSrc = readFileSync("src/content/projects.ts", "utf8");
-// Placeholder projects are noindex, so they are left out of the sitemap.
 const projectBlocks = projectsSrc.split(/\n  \{\n/).slice(1);
 const slugs = projectBlocks
-  .filter((b) => !/placeholder:\s*true/.test(b))
   .map((b) => (b.match(/slug:\s*"([^"]+)"/) || [])[1])
   .filter(Boolean);
 
