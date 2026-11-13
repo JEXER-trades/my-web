@@ -72,5 +72,8 @@ The sender domain must be verified in Resend. On Lovable, connect the Supabase i
 - The share image is in `public/og-image.png`.
 - No structured data yet. Add `Organization` JSON-LD once the business details are confirmed.
 
-## Deploying
-This is a static single-page app. `vercel.json` (Vercel) and `public/_redirects` (Netlify) route every path to `index.html` and set security and cache headers.
+## Deploying (Netlify)
+1. In Netlify: **Add new site → Import from Git →** choose the `my-web` repo and this branch.
+2. Set **Base directory** to `jxstudio`. The build command and publish folder come from `netlify.toml`.
+3. Under **Site configuration → Environment variables** add `VITE_SITE_URL=https://jxstudio.de`, `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
+4. Point the `jxstudio.de` domain at the new site (or swap it on your existing Netlify site).

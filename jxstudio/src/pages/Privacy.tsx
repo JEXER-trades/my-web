@@ -4,7 +4,7 @@ import { LegalPage } from "./LegalPage";
 /**
  * Privacy policy, based on the existing jxstudio.de policy and updated for how
  * this website processes data (Supabase + Resend, self-hosted fonts).
- * Not legal advice — have it reviewed. Update section 3 once hosting is chosen.
+ * Not legal advice — have it reviewed.
  */
 export default function Privacy() {
   const { contact } = site;
@@ -33,7 +33,9 @@ export default function Privacy() {
         When you visit this website, our hosting provider automatically processes technical data (server log files), such as
         your IP address, the date and time of access, the page requested, browser type and operating system. This is technically
         necessary to deliver the website and keep it secure. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in secure
-        and stable operation). [Hosting provider name and address to be added once hosting is confirmed.]
+        and stable operation). This website is hosted by Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107,
+        USA. Data may be transferred to the USA on the basis of the EU-US Data Privacy Framework or the EU Standard Contractual
+        Clauses.
       </p>
 
       <h2>4. Contact form and email</h2>
