@@ -13,6 +13,9 @@ export type Service = {
   description: string;
   includes: string[];
   visual: VisualVariant;
+  /** Optional photo (imported asset or URL). Shown instead of `visual` when set. */
+  image?: string;
+  imageAlt?: string;
 };
 
 export const services: Service[] = [

@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { services } from "@/content/services";
-import { Visual } from "@/components/visuals/Visual";
+import { Media } from "@/components/visuals/Visual";
 import { Reveal, TextReveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Arrow, TextLink } from "@/components/ui/Button";
@@ -45,7 +45,7 @@ export function ServicesPreview() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.9, ease }}
                 >
-                  <Visual variant={current.visual} animate title={`${current.name} — abstract visual`} />
+                  <Media visual={current.visual} image={current.image} animate alt={current.imageAlt ?? `${current.name} — abstract visual`} />
                 </motion.div>
               </AnimatePresence>
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/70 to-transparent p-8 text-paper">
@@ -66,7 +66,7 @@ export function ServicesPreview() {
                   className="group block py-8 md:py-10"
                 >
                   <div className="mb-6 aspect-[16/10] overflow-hidden bg-ink lg:hidden">
-                    <Visual variant={s.visual} />
+                    <Media visual={s.visual} image={s.image} alt={s.imageAlt ?? `${s.name} — abstract visual`} />
                   </div>
                   <div className="flex items-start gap-5 md:gap-8">
                     <span className="pt-2 text-sm tabular-nums text-stone md:pt-3">{s.index}</span>

@@ -5,7 +5,7 @@ import { useHeaderTheme } from "@/components/layout/HeaderTheme";
 import { PageHero } from "@/components/sections/PageHero";
 import { Approach } from "@/components/sections/Approach";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { Visual } from "@/components/visuals/Visual";
+import { Media } from "@/components/visuals/Visual";
 import { ImageReveal, Reveal } from "@/components/ui/Reveal";
 import { TextLink } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
@@ -40,7 +40,7 @@ export default function Services() {
           >
             <div className="container-site grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
               <ImageReveal className={cn("aspect-[4/3] bg-graphite lg:col-span-7", i % 2 === 1 && "lg:order-2 lg:col-start-6")}>
-                <Visual variant={s.visual} animate title={`${s.name} — abstract visual`} />
+                <Media visual={s.visual} image={s.image} animate alt={s.imageAlt ?? `${s.name} — abstract visual`} />
               </ImageReveal>
               <div className={cn("lg:col-span-4", i % 2 === 1 ? "lg:order-1 lg:col-start-1" : "lg:col-start-9")}>
                 <Reveal>
