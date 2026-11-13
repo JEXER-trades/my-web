@@ -21,7 +21,7 @@ export const site = {
   },
 
   social: {
-    instagram: "https://www.instagram.com/", // [PLACEHOLDER] full profile URL
+    instagram: "https://www.instagram.com/sob4n_/",
     linkedin: "https://www.linkedin.com/", // [PLACEHOLDER] full company page URL
   },
 
