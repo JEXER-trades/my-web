@@ -41,7 +41,7 @@ export const projects: Project[] = [
       "Describe the business challenge or opportunity here — what the client wanted to change and why it mattered.",
     approach:
       "Explain the thinking behind the work: the strategy, the creative direction and the key decisions made along the way.",
-    services: ["Brand Identity & Strategy", "Website Design & Development"],
+    services: ["Web Design", "Development"],
     visual: "monolith",
     imageAlt: "Abstract architectural composition — placeholder visual for Project One",
     gallery: [
@@ -61,7 +61,7 @@ export const projects: Project[] = [
       "Describe the business challenge or opportunity here — what the client wanted to change and why it mattered.",
     approach:
       "Explain the thinking behind the work: the strategy, the creative direction and the key decisions made along the way.",
-    services: ["Creative Direction", "Digital Marketing"],
+    services: ["E-commerce", "SEO"],
     visual: "horizon",
     imageAlt: "Abstract horizon composition — placeholder visual for Project Two",
     gallery: [
@@ -81,7 +81,7 @@ export const projects: Project[] = [
       "Describe the business challenge or opportunity here — what the client wanted to change and why it mattered.",
     approach:
       "Explain the thinking behind the work: the strategy, the creative direction and the key decisions made along the way.",
-    services: ["Digital Experiences", "Website Design & Development"],
+    services: ["Development", "Website Management"],
     visual: "grid",
     imageAlt: "Abstract perspective grid — placeholder visual for Project Three",
     gallery: [

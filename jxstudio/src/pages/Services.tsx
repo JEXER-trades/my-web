@@ -14,11 +14,11 @@ export default function Services() {
   useHeaderTheme("light");
   return (
     <>
-      <Seo title="Services" description="Brand identity, websites, digital marketing, creative direction, business solutions and digital experiences — how JXSTUDIO can help." />
+      <Seo title="Services" description="Web design, development, website management, e-commerce, SEO and ongoing support — how JXSTUDIO can help." />
       <PageHero
         eyebrow="Services"
         lines={["WHAT WE BRING", "TO THE TABLE."]}
-        intro="Six ways we help ambitious businesses move forward. Most projects combine several — we shape the mix around what you need."
+        intro="Everything your website needs, in one place. From the first sketch to years of ongoing care, one team handles the whole thing."
       >
         <nav aria-label="Services" className="mt-16 flex flex-wrap gap-x-6 gap-y-3 border-t border-line pt-6 md:mt-24">
           {services.map((s) => (

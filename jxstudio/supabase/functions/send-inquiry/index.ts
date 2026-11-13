@@ -14,12 +14,13 @@
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const SERVICES = [
-  "Brand Identity & Strategy",
-  "Website Design & Development",
-  "Digital Marketing",
-  "Creative Direction",
-  "Business & Management Solutions",
-  "Digital Experiences",
+  // Keep in sync with src/content/services.ts
+  "Web Design",
+  "Development",
+  "Website Management",
+  "E-commerce",
+  "SEO",
+  "Ongoing Support",
   "Something else / not sure yet",
 ];
 const BUDGETS = ["", "Under €5,000", "€5,000 – €15,000", "€15,000 – €50,000", "€50,000+", "Not sure yet"];
