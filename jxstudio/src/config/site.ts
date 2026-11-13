@@ -7,16 +7,17 @@
  */
 export const site = {
   name: "JXSTUDIO",
-  legalName: "JXSTUDIO & MANAGEMENT", // [PLACEHOLDER] confirm registered company name
+  legalName: "Jxstudio",
+  owner: "Soban Waris",
   tagline: "Creative vision. Strategic thinking. Digital excellence.",
   description:
     "JXSTUDIO helps ambitious businesses transform ideas into meaningful brands, digital experiences, and opportunities.",
-  url: (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") || "https://www.jxstudio.example",
+  url: (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") || "https://jxstudio.de",
 
   contact: {
-    email: "hello@jxstudio.example", // [PLACEHOLDER]
-    phone: "" as string, // [PLACEHOLDER] leave empty to hide
-    address: [] as string[], // [PLACEHOLDER] e.g. ["Street 1", "10115 Berlin", "Germany"]
+    email: "soban.waris@jxstudio.de",
+    phone: "" as string, // intentionally not shown on the site
+    address: ["Silbersteinstraße 9", "12051 Berlin", "Germany"] as string[],
   },
 
   social: {
@@ -26,13 +27,13 @@ export const site = {
 
   /** Legal notice / Impressum details. Required in some jurisdictions (e.g. DE/AT). */
   legal: {
-    representative: "[Name of authorised representative]",
-    register: "[Commercial register & number, if applicable]",
-    vatId: "[VAT ID, if applicable]",
-    responsibleForContent: "[Name and address of person responsible for content]",
+    // Sole proprietorship — no commercial register entry or VAT ID listed. Add here if that changes.
+    register: "" as string,
+    vatId: "" as string,
+    responsibleForContent: "Soban Waris, Silbersteinstraße 9, 12051 Berlin",
   },
 
-  privacyLastUpdated: "[Date]",
+  privacyLastUpdated: "November 2026",
 } as const;
 
 export const nav = [

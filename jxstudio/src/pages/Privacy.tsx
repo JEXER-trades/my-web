@@ -2,55 +2,73 @@ import { site } from "@/config/site";
 import { LegalPage } from "./LegalPage";
 
 /**
- * [PLACEHOLDER] Template privacy policy. It describes how this website actually
- * processes data, but it is NOT legal advice — have it reviewed for your
- * jurisdiction (e.g. GDPR) before launch.
+ * Privacy policy, based on the existing jxstudio.de policy and updated for how
+ * this website processes data (Supabase + Resend, self-hosted fonts).
+ * Not legal advice — have it reviewed. Update section 3 once hosting is chosen.
  */
 export default function Privacy() {
+  const { contact } = site;
+  const mail = <a href={`mailto:${contact.email}`}>{contact.email}</a>;
   return (
-    <LegalPage title="Privacy Policy" lines={["PRIVACY", "POLICY."]} description="How JXSTUDIO handles personal data submitted through this website.">
-      <p className="note">Template — to be reviewed and completed before launch. Last updated: {site.privacyLastUpdated}.</p>
+    <LegalPage title="Privacy Policy" lines={["PRIVACY", "POLICY."]} description="How Jxstudio processes personal data on this website (GDPR).">
+      <p className="note">Last updated: {site.privacyLastUpdated}</p>
 
-      <h2>1. Who we are</h2>
+      <h2>1. Controller</h2>
       <p>
-        This website is operated by {site.legalName}. You can reach us at{" "}
-        <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>. Full company details are listed in our Legal Notice.
+        {site.legalName}, Owner: {site.owner}
+        <br />
+        {contact.address.join(", ")}
+        <br />
+        Email: {mail}
       </p>
 
-      <h2>2. What we collect</h2>
-      <p>When you send an inquiry through our contact form, we collect:</p>
-      <ul>
-        <li>your full name and email address;</li>
-        <li>your company name, service of interest, project description and budget range, if provided;</li>
-        <li>the date and time of your submission and a one-way hashed version of your IP address, used only to prevent abuse.</li>
-      </ul>
-
-      <h2>3. Why we use it</h2>
+      <h2>2. General</h2>
       <p>
-        We use this information only to respond to your inquiry and, where relevant, to prepare a proposal. The legal basis is
-        your consent and our legitimate interest in answering requests you send us. We do not sell your data or use it for
-        unrelated marketing.
+        Protecting your personal data matters to us. We process personal data only within the scope of the law, in particular
+        the General Data Protection Regulation (GDPR). This website does not use cookies or any analytics or tracking tools.
       </p>
 
-      <h2>4. Service providers</h2>
+      <h2>3. Hosting</h2>
       <p>
-        Inquiries are stored in a secured database hosted by Supabase and delivered to our inbox through a transactional email
-        provider. [PLACEHOLDER — list the providers you use, their locations and the safeguards in place.]
+        When you visit this website, our hosting provider automatically processes technical data (server log files), such as
+        your IP address, the date and time of access, the page requested, browser type and operating system. This is technically
+        necessary to deliver the website and keep it secure. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in secure
+        and stable operation). [Hosting provider name and address to be added once hosting is confirmed.]
       </p>
 
-      <h2>5. How long we keep it</h2>
-      <p>[PLACEHOLDER — e.g. “We keep inquiries for up to 24 months unless they lead to a working relationship.”]</p>
+      <h2>4. Contact form and email</h2>
+      <p>
+        If you contact us through the contact form or by email, we process the details you provide (name, email address,
+        company, service of interest, project description and budget range, if given) in order to respond to your inquiry. The
+        legal basis is Art. 6(1)(b) GDPR (pre-contractual measures) and Art. 6(1)(f) GDPR (legitimate interest in answering
+        inquiries). We delete the data once it is no longer needed and no statutory retention obligations apply.
+      </p>
+      <p>
+        Form submissions are stored in a secured database provided by Supabase Inc. and forwarded to us by email via Resend
+        (Plus Five Five, Inc.). To prevent abuse, we also store a one-way hashed (non-reversible) form of your IP address. Data
+        may be transferred to the USA; such transfers are based on the EU-US Data Privacy Framework or the EU Standard
+        Contractual Clauses.
+      </p>
+
+      <h2>5. Fonts</h2>
+      <p>The fonts on this website are hosted on our own server. No connection to Google or other font providers is made.</p>
 
       <h2>6. Your rights</h2>
-      <p>
-        You may ask us to access, correct or delete your personal data, or withdraw your consent at any time, by emailing{" "}
-        <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>. You also have the right to lodge a complaint with a data
-        protection authority.
-      </p>
+      <p>You have the right at any time to:</p>
+      <ul>
+        <li>access the data we hold about you (Art. 15 GDPR);</li>
+        <li>have inaccurate data corrected (Art. 16 GDPR);</li>
+        <li>have your data deleted (Art. 17 GDPR);</li>
+        <li>restrict processing (Art. 18 GDPR);</li>
+        <li>data portability (Art. 20 GDPR);</li>
+        <li>object to processing (Art. 21 GDPR).</li>
+      </ul>
+      <p>To exercise these rights, simply email us at {mail}.</p>
 
-      <h2>7. Cookies</h2>
+      <h2>7. Right to lodge a complaint</h2>
       <p>
-        This website does not use tracking or advertising cookies. [PLACEHOLDER — update this section if you add analytics.]
+        You have the right to lodge a complaint with a data protection supervisory authority, in particular in the federal state
+        where you live or where we are based.
       </p>
     </LegalPage>
   );

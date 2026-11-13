@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
 const env = existsSync(".env") ? readFileSync(".env", "utf8") : "";
 const fromEnv = process.env.VITE_SITE_URL || (env.match(/^VITE_SITE_URL=(.*)$/m) || [])[1];
-const base = (fromEnv || "https://www.jxstudio.example").trim().replace(/\/$/, "");
+const base = (fromEnv || "https://jxstudio.de").trim().replace(/\/$/, "");
 
 const projectsSrc = readFileSync("src/content/projects.ts", "utf8");
 // Placeholder projects are noindex, so they are left out of the sitemap.
