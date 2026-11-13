@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "sitemap": "node scripts/generate-sitemap.mjs",
-    "build:preview": "tsc -b && vite build -c vite.preview.config.ts"
+    "build:preview": "tsc -b && vite build -c vite.preview.config.ts",
+    "build:export": "tsc -b && vite build -c vite.export.config.ts"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.0",
