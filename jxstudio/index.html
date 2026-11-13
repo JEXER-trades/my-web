@@ -17,6 +17,13 @@
       <div style="padding:2rem;font-family:system-ui">JXSTUDIO — Creative vision. Strategic thinking. Digital excellence. Please enable JavaScript to view this site.</div>
     </noscript>
     <div id="root"></div>
+    <!-- Static copy of the inquiry form so Netlify detects it at deploy time. Keep fields in sync with src/lib/inquiry.ts. -->
+    <form name="inquiry" data-netlify="true" netlify-honeypot="website" hidden>
+      <input type="hidden" name="form-name" value="inquiry" />
+      <input name="subject" /><input name="name" /><input name="email" /><input name="company" />
+      <input name="service" /><textarea name="message"></textarea><input name="budget" />
+      <input name="consent" /><input name="website" />
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

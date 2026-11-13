@@ -26,7 +26,6 @@ const empty = (): InquiryInput => ({
   budget: "",
   consent: false,
   website: "",
-  startedAt: Date.now(),
 });
 
 export function InquiryForm() {
@@ -101,7 +100,7 @@ export function InquiryForm() {
   }
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} noValidate aria-describedby={`${uid}-privacy`} className="relative">
+    <form ref={formRef} name="inquiry" method="POST" data-netlify="true" netlify-honeypot="website" onSubmit={onSubmit} noValidate aria-describedby={`${uid}-privacy`} className="relative">
       <div className="grid gap-x-10 gap-y-10 md:grid-cols-2">
         <Field id={`${uid}-name`} label="Full name" required error={err("name")}>
           <input

@@ -1,3 +1,0 @@
-[functions.send-inquiry]
-# The function is called from the public website with the anon key.
-verify_jwt = false

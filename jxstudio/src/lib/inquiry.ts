@@ -1,8 +1,9 @@
 /**
- * Inquiry submission client.
- * Posts to the `send-inquiry` Supabase Edge Function, which validates the
- * payload again server-side, applies spam checks and rate limiting, stores
- * the inquiry and emails it to the studio. See /supabase and README.md.
+ * Inquiry submission client — Netlify Forms.
+ * The form is registered with Netlify by the hidden static copy in index.html
+ * (form name "inquiry"). Netlify stores each submission, filters spam
+ * (honeypot + Akismet) and emails it to the addresses set under
+ * Site configuration → Forms → Form notifications.
  */
 import { services } from "@/content/services";
 
@@ -21,8 +22,6 @@ export type InquiryInput = {
   consent: boolean;
   /** Honeypot — must stay empty. */
   website: string;
-  /** ms timestamp when the form was first rendered (bot timing check). */
-  startedAt: number;
 };
 
 export type FieldErrors = Partial<Record<keyof InquiryInput, string>>;
@@ -45,31 +44,30 @@ export function validateInquiry(v: InquiryInput): FieldErrors {
 
 export class InquiryError extends Error {}
 
+export const FORM_NAME = "inquiry";
+
 export async function submitInquiry(v: InquiryInput): Promise<void> {
-  const url = import.meta.env.VITE_SUPABASE_URL;
-  const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
-  if (!url || !key) {
-    throw new InquiryError("The inquiry service is not configured yet.");
-  }
+  const fields: Record<string, string> = {
+    "form-name": FORM_NAME,
+    subject: `New inquiry — ${v.name.trim()}${v.company.trim() ? ` (${v.company.trim()})` : ""}`,
+    name: v.name.trim(),
+    email: v.email.trim(),
+    company: v.company.trim(),
+    service: v.service,
+    message: v.message.trim(),
+    budget: v.budget,
+    consent: v.consent ? "yes" : "no",
+    website: v.website,
+  };
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15000);
   let res: Response;
   try {
-    res = await fetch(`${url.replace(/\/$/, "")}/functions/v1/send-inquiry`, {
+    res = await fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/json", apikey: key, Authorization: `Bearer ${key}` },
-      body: JSON.stringify({
-        name: v.name.trim(),
-        email: v.email.trim(),
-        company: v.company.trim(),
-        service: v.service,
-        message: v.message.trim(),
-        budget: v.budget,
-        consent: v.consent,
-        website: v.website,
-        elapsedMs: Date.now() - v.startedAt,
-      }),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(fields).toString(),
       signal: controller.signal,
     });
   } catch {
@@ -79,14 +77,11 @@ export async function submitInquiry(v: InquiryInput): Promise<void> {
   }
 
   if (!res.ok) {
-    let msg = "Something went wrong while sending your inquiry.";
-    try {
-      const data = (await res.json()) as { error?: string };
-      if (data.error) msg = data.error;
-    } catch {
-      /* ignore */
-    }
-    if (res.status === 429) msg = "You've sent several inquiries recently. Please wait a little and try again.";
-    throw new InquiryError(msg);
+    // Outside Netlify (e.g. local dev) there is no form handler, so this fails honestly.
+    throw new InquiryError(
+      res.status === 404 || res.status === 405
+        ? "The inquiry service isn't available here."
+        : "Something went wrong while sending your inquiry.",
+    );
   }
 }

@@ -3,7 +3,7 @@ import { LegalPage } from "./LegalPage";
 
 /**
  * Privacy policy, based on the existing jxstudio.de policy and updated for how
- * this website processes data (Supabase + Resend, self-hosted fonts).
+ * this website processes data (Netlify hosting + Netlify Forms, self-hosted fonts).
  * Not legal advice — have it reviewed.
  */
 export default function Privacy() {
@@ -46,10 +46,10 @@ export default function Privacy() {
         inquiries). We delete the data once it is no longer needed and no statutory retention obligations apply.
       </p>
       <p>
-        Form submissions are stored in a secured database provided by Supabase Inc. and forwarded to us by email via Resend
-        (Plus Five Five, Inc.). To prevent abuse, we also store a one-way hashed (non-reversible) form of your IP address. Data
-        may be transferred to the USA; such transfers are based on the EU-US Data Privacy Framework or the EU Standard
-        Contractual Clauses.
+        Form submissions are processed and stored by our hosting provider, Netlify, Inc. (see section 3), using its Netlify
+        Forms service, and forwarded to us by email. To protect against spam, submissions may be checked by Akismet (Automattic
+        Inc.). Data may be transferred to the USA; such transfers are based on the EU-US Data Privacy Framework or the EU
+        Standard Contractual Clauses.
       </p>
 
       <h2>5. Fonts</h2>

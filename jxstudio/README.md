@@ -1,7 +1,7 @@
 # JXSTUDIO — Website
 
 Marketing website for **JXSTUDIO & MANAGEMENT**.
-Built with React, TypeScript, Vite, Tailwind CSS, Framer Motion and a Supabase backend for the contact form. It uses the same stack as Lovable.
+Built with React, TypeScript, Vite, Tailwind CSS and Framer Motion, hosted on Netlify with Netlify Forms for the contact form. It uses the same stack as Lovable.
 
 ```bash
 npm install
@@ -41,30 +41,18 @@ They are sharp at any size, weigh almost nothing, and never break. Every visual 
   `ScrollText` brightens words as you scroll. Lenis provides smooth scrolling. Every animation respects `prefers-reduced-motion`.
 - **Rhythm:** sections alternate between light (`paper`/`mist`) and dark (`ink`/`night`). Each page tells the navigation which theme its hero uses with `useHeaderTheme("dark" | "light")`.
 
-## Contact form backend (Supabase + Resend)
+## Contact form (Netlify Forms)
 
-The form posts to the Supabase Edge Function `send-inquiry`. The function:
-1. Checks the origin (`ALLOWED_ORIGINS`) and the request size.
-2. Applies spam protection: a hidden honeypot field, a minimum fill time, and a limit of 5 submissions per hashed IP per hour.
-3. Validates every field on the server.
-4. Stores the inquiry in `public.inquiries`. Row Level Security is on and there are no public policies, so nobody can read the table with the anon key.
-5. Emails the inquiry to you through [Resend](https://resend.com), with `reply-to` set to the sender.
+The form is submitted to **Netlify Forms**, so there's no extra service or API key.
+- Netlify finds the form at deploy time from the hidden copy in `index.html`. Keep its fields in sync with `src/lib/inquiry.ts`.
+- Spam protection: the hidden honeypot field `website` plus Netlify's built-in Akismet filtering.
+- The form is validated in the browser, and it shows success only when Netlify confirms it received the submission.
+  Run locally with `npm run dev`, the form shows an error because there's no Netlify behind it. That's expected.
 
-The site reports success only when the inquiry was actually stored or emailed. If the backend isn't configured, the form shows an error and offers the email address instead. It never shows a fake success.
-
-### Setup
-```bash
-supabase link --project-ref YOUR-PROJECT
-supabase db push                                   # creates the inquiries table
-supabase secrets set \
-  RESEND_API_KEY=re_xxx \
-  INQUIRY_TO_EMAIL=hello@yourdomain.com \
-  INQUIRY_FROM_EMAIL="JXSTUDIO Website <website@yourdomain.com>" \
-  ALLOWED_ORIGINS=https://www.yourdomain.com,http://localhost:8080
-supabase functions deploy send-inquiry --no-verify-jwt
-```
-Then set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in `.env` (or in your host's environment settings).
-The sender domain must be verified in Resend. On Lovable, connect the Supabase integration and add the same secrets.
+**After the first deploy:**
+1. Netlify → **Forms** → enable form detection if it isn't already on, then redeploy.
+2. **Site configuration → Forms → Form notifications → Add notification → Email notification**, and enter `soban.waris@jxstudio.de`.
+3. Submit a test inquiry on the live site and check that it arrives.
 
 ## SEO
 - Each page sets its own title, description, canonical URL and Open Graph and Twitter tags (`src/components/ui/Seo.tsx`).
@@ -75,5 +63,5 @@ The sender domain must be verified in Resend. On Lovable, connect the Supabase i
 ## Deploying (Netlify)
 1. In Netlify: **Add new site → Import from Git →** choose the `my-web` repo and this branch.
 2. Set **Base directory** to `jxstudio`. The build command and publish folder come from `netlify.toml`.
-3. Under **Site configuration → Environment variables** add `VITE_SITE_URL=https://jxstudio.de`, `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
+3. Under **Site configuration → Environment variables** add `VITE_SITE_URL=https://jxstudio.de`.
 4. Point the `jxstudio.de` domain at the new site (or swap it on your existing Netlify site).
