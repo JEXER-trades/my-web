@@ -1,4 +1,5 @@
 import type { VisualVariant } from "@/components/visuals/Visual";
+import developmentImage from "@/assets/services/development.webp";
 
 /**
  * Services as offered on jxstudio.de. These are configurable — edit, reorder,
@@ -38,6 +39,8 @@ export const services: Service[] = [
       "Fast, mobile-friendly websites built to load quickly and work properly on every device — developed, tested and launched on your own domain.",
     includes: ["Responsive development", "Performance optimisation", "Contact forms", "Launch on your domain"],
     visual: "grid",
+    image: developmentImage,
+    imageAlt: "Illustration of a laptop and phones displaying code and analytics dashboards",
   },
   {
     slug: "website-management",
