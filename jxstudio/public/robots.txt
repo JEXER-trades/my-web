@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace the domain below with the live site URL before launch.
+Sitemap: https://www.jxstudio.example/sitemap.xml
